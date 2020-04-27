@@ -27,7 +27,21 @@ public class Ejercicio8 {
             case 1: {
                 mostrarMenuQuery();
             }case 2:{
-                
+                try{
+                System.out.println("campo a modificar");
+                Scanner entrada2 = new Scanner(System.in);
+                String campo = entrada2.nextLine();
+                System.out.println("valor a modificar");
+                String valor = entrada2.nextLine();
+                System.out.println("nuevo valor");
+                String valorFinal = entrada2.nextLine();
+                Querys.updateQuery(campo, valorFinal, valor);
+                }catch(SQLException ex){
+                    System.out.println(ex.getErrorCode());
+                    System.out.println(ex.getSQLState());
+                }
+                mostrarMenu();
+                break;
             }
         }
     }
@@ -35,7 +49,7 @@ public class Ejercicio8 {
     public static void mostrarMenuQuery() throws SQLException, IOException {
         Scanner entrada = new Scanner(System.in);
         System.out.println("1 consultas\n"
-                + "2 consulta clave primaria");
+                + "2 consulta clave primaria\n");
         int menu = entrada.nextInt();
 
         switch (menu) {
